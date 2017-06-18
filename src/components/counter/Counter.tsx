@@ -8,7 +8,7 @@ interface IProps {
 }
 
 @inject(FOOTER_STORE) @observer
-export default class Counter extends React.Component<IProps, void> {
+export default class Counter extends React.Component<{}, void> {
     private CounterStore: CounterStore;
     private FooterStore: FooterStore;
 

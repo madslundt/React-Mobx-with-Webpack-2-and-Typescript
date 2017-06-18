@@ -1,9 +1,8 @@
-import {useStrict, observable, action} from 'mobx';
+import {useStrict, observable, action, computed} from 'mobx';
 import {getProfile} from "./api/ProfileMockApi";
 import ApiStatus from '../../infrastructure/api/apiStatus';
 
 useStrict(true);
-
 export interface IProfile {
     id: string;
     firstName: string;
@@ -19,11 +18,11 @@ export default class ProfileStore {
     constructor(id: string) {
         this._setApiStatus(ApiStatus.Request);
         getProfile(id).then(profile => {
-            this._setApiStatus(ApiStatus.Success);
             this._setProfile(profile);
+            this._setApiStatus(ApiStatus.Success);
         }, error => {
-            this._setApiStatus(ApiStatus.Error);
             this._setError(error);
+            this._setApiStatus(ApiStatus.Error);
         });
     }
 
@@ -42,25 +41,17 @@ export default class ProfileStore {
         this._error = error;
     }
 
-    get firstName() {
-        if (this._profile) {
-            return this._profile.firstName;
-        } else {
-            return '';
-        }
-    }
-    get lastName() {
-        if (this._profile) {
-            return this._profile.lastName;
-        } else {
-            return '';
-        }
+    @computed
+    get profile() {
+        return this._profile;
     }
 
+    @computed
     get error() {
         return this._error;
     }
 
+    @computed
     get apiStatus() {
         return this._apiStatus;
     }

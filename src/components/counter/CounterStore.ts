@@ -1,4 +1,4 @@
-import {useStrict, observable, action} from 'mobx';
+import {useStrict, observable, action, computed} from 'mobx';
 
 useStrict(true);
 export default class CounterStore {
@@ -18,6 +18,7 @@ export default class CounterStore {
         this._number--;
     }
 
+    @computed
     get number() {
         return this._number;
     }
