@@ -14,7 +14,7 @@ interface IProps {
 }
 
 @inject(PRAICE_INFO_STORE) @observer
-export default class PraicePanel extends React.Component<IProps, void> {
+export default class PraicePanel extends React.Component<IProps, {}> {
     private PraicePanelStore: PraicePanelStore;
     private PraiceInfoStore: PraiceInfoStore;
 

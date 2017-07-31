@@ -8,7 +8,7 @@ import PraicePanel from "../components/praicepanel/PraicePanel";
 import PraicePanelStore from "../components/praicepanel/PraicePanelStore";
 
 @observer
-export default class ProfilePage extends React.Component<RouteComponentProps<{id : string}>, void> {
+export default class ProfilePage extends React.Component<RouteComponentProps<{id : string}>, {}> {
     private ProfileStore: ProfileStore;
     private profileId: string;
 

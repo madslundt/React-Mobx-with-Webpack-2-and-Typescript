@@ -4,7 +4,7 @@ import FooterStore, {FOOTER_STORE} from './FooterStore';
 import {inject, observer} from 'mobx-react';
 
 @inject(FOOTER_STORE) @observer
-class Footer extends React.Component<{}, void> {
+class Footer extends React.Component<{}, {}> {
     private footerStore: FooterStore;
 
     constructor(props: { FOOTER_STORE: FooterStore }) {
